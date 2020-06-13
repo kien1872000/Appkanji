@@ -62,17 +62,35 @@ public class Util {
 	}
 	public static boolean checkpass(String pass) {
 		if(pass.length()<=7) return false;
+		int[] check = new int[2];
+		for(int i = 0; i<2; i++) {
+			check[i] = 0;
+		}
 		for(int i =0; i<pass.length(); i++) {
 			char character = pass.charAt(i);
-			if(!(('a'<=character&&character<='z')||(48<=character&&character<=57))) return false; 
+			if ('a'<=character&&character<='z' || 'A'<=character&&character<='Z') check [0]++;
+			else if (48<=character&&character<=57) check[1]++;
+			else return false;
+		}
+		for(int i =0; i<2; i++) {
+			if(check[i]==0) return false;
 		}
 		return true;
 	}
 	public static boolean checkaccountName(String accountName) {
+		int[] check = new int[3];
+		for(int i = 0; i<3; i++) {
+			check[i] = 0;
+		}
 		for(int i =0; i<accountName.length(); i++) {
 			char character = accountName.charAt(i);
-			if(!(('a'<=character&&character<='z') || ('A'<=character&&character<='Z')||
-			(48<=character&&character<=57)|| (character =='_') || (character =='.'))) return false; 
+			if ('a'<=character&&character<='z' || 'A'<=character&&character<='Z') check [0]++;
+			else if (48<=character&&character<=57) check[1]++;
+			else if (character =='_' || character =='.') check[2]++; 
+			else return false;
+		}
+		for(int i =0; i<3; i++) {
+			if(check[i]==0) return false;
 		}
 		return true;
 	}
