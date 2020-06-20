@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.Date;
 public class JDBCConnection {
 	
-	  // static String url = "jdbc:mysql://us-cdbr-east-06.cleardb.net:3306/heroku_933b8493771d8e4?useUnicode=yes&characterEncoding=UTF-8";
-	   static String url = "jdbc:mysql://localhost:3306/kanji_data?allowPublicKeyRetrieval=true&useSSL=false";
+	   static String url = "jdbc:mysql://us-cdbr-east-06.cleardb.net:3306/heroku_933b8493771d8e4?useUnicode=yes&characterEncoding=UTF-8";
+	   //static String url = "jdbc:mysql://localhost:3306/kanji_data?allowPublicKeyRetrieval=true&useSSL=false";
 	    Connection conn;
 	    Statement st;
 
@@ -18,8 +18,8 @@ public class JDBCConnection {
 
 	        try {
 	            Class.forName("com.mysql.jdbc.Driver");
-	            //this.conn = DriverManager.getConnection(url, "b9caf2de664961", "c1009b25");
-	            this.conn = DriverManager.getConnection(url, "root", "453123453");
+	            this.conn = DriverManager.getConnection(url, "b9caf2de664961", "c1009b25");
+	           // this.conn = DriverManager.getConnection(url, "root", "453123453");
 
 	        } catch (ClassNotFoundException e) {
 	            // TODO Auto-generated catch block
