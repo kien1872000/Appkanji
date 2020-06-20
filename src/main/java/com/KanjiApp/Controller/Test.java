@@ -40,9 +40,7 @@ public class Test extends HttpServlet {
 		PrintWriter printWriter = new PrintWriter(resp.getWriter());
 		ArrayList<Question> questions = new ArrayList<Question>();
 		String fvwlists = DAO.fvwords(idUser);
-		String[] str = fvwlists.split(" ");
-		System.out.println(fvwlists+" "+ str.length);
-		if(str.length<10) {
+		if(fvwlists==null||fvwlists.split(" ").length<10) {
 			Res res = new Res(0, "Phải có ít nhất 10 từ yêu thích mới có thể test");
 			printWriter.println(g.toJson(res));
 		}
